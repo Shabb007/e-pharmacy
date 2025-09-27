@@ -17,7 +17,7 @@ const MedicineProductDetail = () => {
 
   useEffect(() => {
     if (name) {
-      dispatch(fetchCardDetalis(name));
+      dispatch(fetchCardDetails(name));
     }
   }, [dispatch, name]);
 
