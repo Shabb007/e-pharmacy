@@ -11,12 +11,12 @@ import {
   MedicineProductCardItemNameDetalis,
   MedicineProductCardItemPhotoDetalis,
   MedicineProductCardItemTablDetalis,
-} from "./CardDetalis.styled";
+} from "./CardDetails.styled";
 import ProductChecker from "../ProductChecker/ProductChecker";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItemBasket } from "../../redux/Basket/basket-operations";
-const CardDetalis = (props) => {
+const CardDetails = (props) => {
   const [count, setCount] = useState(1);
   const increment = () => {
     setCount(count + 1);
@@ -72,11 +72,11 @@ const CardDetalis = (props) => {
   );
 };
 
-CardDetalis.propTypes = {
+CardDetails.propTypes = {
   photo: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   suppliers: PropTypes.string.isRequired,
   stock: PropTypes.string.isRequired,
 };
 
-export default CardDetalis;
+export default CardDetails;

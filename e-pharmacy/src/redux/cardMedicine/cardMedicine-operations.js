@@ -48,7 +48,7 @@ export const fetchCardSearch = createAsyncThunk(
   }
 );
 
-export const fetchCardDetalis = createAsyncThunk(
+export const fetchCardDetails = createAsyncThunk(
   "cards/fetchCardDetalis",
   async (arrayParams, thunkApi) => {
     const db = getFirestore(app);
