@@ -14,13 +14,13 @@ import { use } from "react";
 import { data } from "react-router-dom";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCSV72meERcINP8_4dyJtXx5bQFc3nBROs",
-  authDomain: "e-pharmacy-9154f.firebaseapp.com",
-  projectId: "e-pharmacy-9154f",
-  storageBucket: "e-pharmacy-9154f.firebasestorage.app",
-  messagingSenderId: "488911963417",
-  appId: "1:488911963417:web:41fdd49fb22e8057e4b188",
-  measurementId: "G-SHPN8F7VD1",
+  apiKey: "AIzaSyBJBZ1XEjwF566vhBszwJ-tBBSd4R0W_M0",
+  authDomain: "e-pharmacy-f3e73.firebaseapp.com",
+  projectId: "e-pharmacy-f3e73",
+  storageBucket: "e-pharmacy-f3e73.firebasestorage.app",
+  messagingSenderId: "1098439605213",
+  appId: "1:1098439605213:web:81bb4f82ccc21e88e0d434",
+  measurementId: "G-EXW1W71KSG",
 };
 
 const app = initializeApp(firebaseConfig);
