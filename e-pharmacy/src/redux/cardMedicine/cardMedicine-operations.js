@@ -7,7 +7,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import app from "../../fierbase/fierbase";
+import app from "../../firebase/firebase.js";
 
 export const fetchCardSearch = createAsyncThunk(
   "cards/fetchCardSearch",

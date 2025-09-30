@@ -30,7 +30,7 @@ import { Container } from "../Container/container.styled";
 import { ReactComponent as LogoIcon } from "../../img/logo.svg";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import CustomModal from "../CustomModal/CustomModal";
+import CustomModal from "../CustomModal/Custom.Modal";
 import { BiX } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import {

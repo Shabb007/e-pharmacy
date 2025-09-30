@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore";
-import app from "../../fierbase/fierbase";
+import app from "../../firebase/firebase";
 
 export const fetchStoreCard = createAsyncThunk(
   "cards/fetchStoreCard",

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchCardDetalis, fetchCardSearch } from "./cardMedichine-operations";
+import { fetchCardDetails, fetchCardSearch } from "./cardMedicine-operations";
 
 const cardSlice = createSlice({
   name: "cards",
@@ -24,14 +24,14 @@ const cardSlice = createSlice({
         state.status = "failed";
         state.error = action.payload;
       })
-      .addCase(fetchCardDetalis.pending, (state) => {
+      .addCase(fetchCardDetails.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchCardDetalis.fulfilled, (state, action) => {
+      .addCase(fetchCardDetails.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.itemID = action.payload;
       })
-      .addCase(fetchCardDetalis.rejected, (state, action) => {
+      .addCase(fetchCardDetails.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
       });

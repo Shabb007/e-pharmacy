@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getFirestore, collection, getDocs, query } from "firebase/firestore";
-import app from "../fierbase/fierbase";
+import app from "../firebase/firebase.js";
 
 const useReviews = () => {
   const [reviews, setReviews] = useState([]);

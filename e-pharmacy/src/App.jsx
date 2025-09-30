@@ -1,35 +1,79 @@
-import { useState } from 'react'
-import reactLogo from './components/react.svg'
-import viteLogo from '/vite.svg'
-// Removed missing './App.css'
+import "./index.css";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Medicine from "./pages/Medicine/Medicine";
+import Store from "./pages/Store/Store";
+import NotFound from "./pages/NotFound/NotFound";
+import Layout from "./components/Layout/Layout";
+import MedicineProductDetail from "./components/MedicineDetail/MedicineDetail";
+import Modal from "react-modal";
+import Basket from "./pages/Basket/Basket";
+
+Modal.setAppElement("#root");
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Medicine"
+          element={
+            <Layout>
+              <Medicine />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Store"
+          element={
+            <Layout>
+              <Store />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Medicine/:name"
+          element={
+            <Layout>
+              <MedicineProductDetail />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Store"
+          element={
+            <Layout>
+              <Store />
+            </Layout>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Layout>
+              <NotFound />
+            </Layout>
+          }
+        />
+        <Route
+          path="/Basket"
+          element={
+            <Layout>
+              <Basket />
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

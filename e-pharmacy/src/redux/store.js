@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cardReducer from "./cardMedichine/cardMedichine-reducer";
+import cardReducer from "./cardMedicine/cardMedicine-reducer";
 import cardsStoreReducer from "./cardStore/cardStore-reducer";
 import authReducer from "./auth/auth-reducer";
 import basketReducer from "./Basket/basket-reducer";
@@ -9,7 +9,7 @@ const store = configureStore({
     cards: cardReducer,
     cardsStore: cardsStoreReducer,
     auth: authReducer,
-    basket: basketReducer, // Assuming basket is part of authReducer
+    basket: basketReducer,
   },
 });
 
