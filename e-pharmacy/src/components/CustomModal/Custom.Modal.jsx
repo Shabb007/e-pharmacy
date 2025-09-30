@@ -14,8 +14,14 @@ const CustomModal = ({ isOpen, onRequestClose, children }) => {
           bottom: "auto",
           marginRight: "-50%",
           transform: "translate(-50%, -50%)",
-          backgroundColor: "white",
+          backgroundColor: "rgb(89, 177, 122)",
           borderRadius: "20px",
+          padding: 0,
+          width: "90%",
+          maxWidth: "520px",
+          color: "#ffffff",
+          boxShadow:
+            "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)",
         },
         overlay: { backgroundColor: "rgba(0, 0, 0, 0.75)" },
       }}
@@ -32,7 +38,7 @@ export const ModalForm = styled.form`
 `;
 
 export const ModalTitle = styled.h3`
-  color: rgb(29, 30, 33);
+  color: #ffffff;
   font-size: 28px;
   font-weight: 600;
   line-height: 32px;
@@ -41,7 +47,7 @@ export const ModalTitle = styled.h3`
 `;
 
 export const ModalSubTitle = styled.p`
-  color: rgb(106, 106, 111);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
@@ -55,12 +61,16 @@ export const ModalInput = styled.input`
   background: rgb(255, 255, 255);
   padding: 18px 13px;
   margin-bottom: 14px;
+  color: rgb(29, 30, 33);
+  &::placeholder {
+    color: rgba(29, 30, 33, 0.6);
+  }
 `;
 
 export const ModalButton = styled.button`
   border-radius: 60px;
-  background: rgb(89, 177, 122);
-  color: rgb(255, 255, 255);
+  background: #ffffff;
+  color: rgb(89, 177, 122);
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
@@ -71,7 +81,7 @@ export const ModalButton = styled.button`
 `;
 
 export const ModalSubButton = styled.button`
-  color: rgba(29, 30, 33, 0.4);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
@@ -86,6 +96,10 @@ export const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 50px 70px;
+  color: #ffffff;
+  span {
+    color: #ffe0e0;
+  }
 `;
 
 export const CloseModal = styled.button`

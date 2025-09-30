@@ -13,6 +13,16 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   padding-top: 28px;
   padding-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
 `;
 
 export const Logo = styled.div`
@@ -52,6 +62,11 @@ export const ButtonHeaderWrapper = styled.div`
 export const HeaderList = styled.ul`
   display: flex;
   gap: 8px;
+  flex-wrap: wrap;
+  @media (max-width: 700px) {
+    gap: 4px;
+    font-size: 14px;
+  }
 `;
 
 export const HeaderListItem = styled.li``;
@@ -86,6 +101,7 @@ export const HeaderListAuthButtonLogin = styled.button`
 export const ModalForm = styled.form`
   display: flex;
   flex-direction: column;
+  color: #1d1e21;
 `;
 
 export const ModalTitle = styled.h3`
@@ -110,8 +126,14 @@ export const ModalInput = styled.input`
   border: 1px solid rgba(29, 30, 33, 0.1);
   border-radius: 60px;
   background: rgb(255, 255, 255);
+  color: #1d1e21;
   padding: 18px 13px;
   margin-bottom: 14px;
+  font-size: 16px;
+  &::placeholder {
+    color: #888;
+    opacity: 1;
+  }
 `;
 
 export const ModalButton = styled.button`

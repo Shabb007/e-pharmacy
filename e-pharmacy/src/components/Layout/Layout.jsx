@@ -6,8 +6,9 @@ import { useLocation } from "react-router-dom";
 const Layout = ({ children }) => {
   const location = useLocation();
   const [headerStyles, setHeaderStyles] = React.useState({
-    backgroundColor: "#e0e0e0",
-    color: "#000000",
+    backgroundColorHeader: "#ffffff",
+    colorlogo: " rgb(89, 177, 122)",
+    colorlogoText: "black",
   });
   useEffect(() => {
     switch (location.pathname) {
