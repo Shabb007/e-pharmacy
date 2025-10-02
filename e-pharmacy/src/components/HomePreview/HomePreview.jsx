@@ -114,7 +114,17 @@ const HomePreview = () => {
                 marginBottom: "120px",
               }}
             >
-              {cards.length > 0 ? (
+              {status === "loading" && <p>Loading...</p>}
+              {status === "failed" && (
+                <p style={{ color: "#c0392b" }}>
+                  Failed to load stores{error ? `: ${error}` : "."}
+                </p>
+              )}
+              {status === "succeeded" && cards.length === 0 && (
+                <p>No stores found.</p>
+              )}
+              {status === "succeeded" &&
+                cards.length > 0 &&
                 cards.map((item) => (
                   <MedicineStoreCardComponent
                     key={item.id}
@@ -125,10 +135,7 @@ const HomePreview = () => {
                     rating={item.rating}
                     open={item.open}
                   />
-                ))
-              ) : (
-                <p>Loading...</p>
-              )}
+                ))}
             </ul>
             <PromoSectionWrapper>
               <PromoSectionWrapperTitle>
