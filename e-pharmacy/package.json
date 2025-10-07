@@ -23,6 +23,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
     "firebase": "^12.3.0",
+    "firestore-export-import": "^1.6.0",
     "nanoid": "^5.1.6",
     "prop-types": "^15.8.1",
     "react": "^19.2.0",
