@@ -24,5 +24,16 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function importData() {
+  for (const pharmacy of nearestPharmacies) {
+    await addDoc(collection(db, "nearest_pharmacies"), pharmacy);
+    console.log("Added:", pharmacy.name);
+  }
+  console.log("All pharmacies imported!");
+}
+
+importData();
 
 export default app;
