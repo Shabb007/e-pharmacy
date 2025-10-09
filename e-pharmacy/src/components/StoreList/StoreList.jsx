@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import MedicineStoreCardComponent from "../PromoBanners/PromoBanners";
 import { Container } from "../Container/container.styled";
@@ -15,14 +16,40 @@ const StoreList = () => {
   const cards = useCardsStore();
   const status = useStatusCardsStore();
   const error = useErrorCardsStore();
+  const [cityFilter, setCityFilter] = useState("");
+  const [openFilter, setOpenFilter] = useState("all");
+
   useEffect(() => {
     dispatch(fetchStoreCard());
     return () => {};
   }, []);
+
+  const filteredCards = cards.filter(item => {
+    const cityMatch = cityFilter ? item.city.toLowerCase().includes(cityFilter.toLowerCase()) : true;
+    const openMatch = openFilter === "all" ? true : item.open === (openFilter === "open");
+    return cityMatch && openMatch;
+  });
+
   return (
     <Container>
       <MedicineStoreWrapper>
         <MedicineStoreTitle>Medicine store</MedicineStoreTitle>
+        
+        {/* Filter UI */}
+        <FilterWrapper>
+          <FilterInput
+            type="text"
+            placeholder="Filter by city"
+            value={cityFilter}
+            onChange={(e) => setCityFilter(e.target.value)}
+          />
+          <FilterSelect value={openFilter} onChange={(e) => setOpenFilter(e.target.value)}>
+            <option value="all">All</option>
+            <option value="open">Open</option>
+            <option value="closed">Closed</option>
+          </FilterSelect>
+        </FilterWrapper>
+
         <ul
           style={{
             display: "flex",
@@ -39,12 +66,12 @@ const StoreList = () => {
               Failed to load stores{error ? `: ${error}` : "."}
             </p>
           )}
-          {status === "succeeded" && cards.length === 0 && (
+          {status === "succeeded" && filteredCards.length === 0 && (
             <p>No stores found.</p>
           )}
           {status === "succeeded" &&
-            cards.length > 0 &&
-            cards.map((item) => (
+            filteredCards.length > 0 &&
+            filteredCards.map((item) => (
               <MedicineStoreCardComponent
                 key={item.id}
                 name={item.name}
@@ -74,3 +101,27 @@ export const MedicineStoreTitle = styled.h1`
 `;
 
 export const MedicineStoreWrapper = styled.div``;
+
+export const FilterWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  align-items: center;
+`;
+
+export const FilterInput = styled.input`
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 200px;
+`;
+
+export const FilterSelect = styled.select`
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+`;

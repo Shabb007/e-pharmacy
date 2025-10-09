@@ -12,6 +12,7 @@ import {
 import { array } from "prop-types";
 import { use } from "react";
 import { data } from "react-router-dom";
+import { getDatabase, ref, get } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBJBZ1XEjwF566vhBszwJ-tBBSd4R0W_M0",
@@ -24,16 +25,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function importData() {
-  for (const pharmacy of nearestPharmacies) {
-    await addDoc(collection(db, "nearest_pharmacies"), pharmacy);
-    console.log("Added:", pharmacy.name);
-  }
-  console.log("All pharmacies imported!");
-}
-
-importData();
 
 export default app;
